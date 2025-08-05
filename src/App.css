@@ -1,0 +1,115 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  max-width: 800px;
+  margin: 30px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #3b3f5c;
+  text-align: center;
+}
+
+h2, h3, h4 {
+  color: #444;
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+input, textarea, select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  padding: 8px 14px;
+  background-color: #3b7ddd;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: #315fd6;
+}
+
+.task-card {
+  background: #fdfdfd;
+  border: 1px solid #dfe3e8;
+  border-left: 5px solid #3b7ddd;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.task-card p {
+  margin: 5px 0;
+}
+
+.task-card a {
+  color: #3b7ddd;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.task-card a:hover {
+  text-decoration: underline;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-bar input, .filter-bar select {
+  flex: 1;
+}
+
+.App.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.App.dark input,
+.App.dark textarea,
+.App.dark select {
+  background-color: #333;
+  color: #e0e0e0;
+  border: 1px solid #555;
+}
+
+.App.dark .task-card {
+  background-color: #1e1e1e;
+  border-color: #444;
+  border-left-color: #3b7ddd;
+}
+
+.App.dark button {
+  background-color: #3b7ddd;
+}
+
+.App.dark button:hover {
+  background-color: #5a9cff;
+}
+
