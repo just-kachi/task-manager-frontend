@@ -5,6 +5,13 @@ const TaskComments = ({ taskId }) => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
 
+  const handleAddComment = async () => {
+    if (!newComment.trim()) return;
+    await axios.post(`http://localhost:3000/tasks/${taskId}/comments`, { content: newComment });
+    setNewComment("");
+    fetchComments(); // still works since it's in the outer scope
+  };
+
   const fetchComments = async () => {
     try {
       const res = await axios.get(`http://localhost:3000/tasks/${taskId}/comments`);
@@ -14,16 +21,18 @@ const TaskComments = ({ taskId }) => {
     }
   };
 
-  const handleAddComment = async () => {
-    if (!newComment.trim()) return;
-    await axios.post(`http://localhost:3000/tasks/${taskId}/comments`, { content: newComment });
-    setNewComment("");
-    fetchComments();
-  };
-
   useEffect(() => {
-    fetchComments();
-  }, []);
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`http://localhost:3000/tasks/${taskId}/comments`);
+        setComments(res.data);
+      } catch (err) {
+        console.error("Failed to load comments", err);
+      }
+    };
+
+    fetchData();
+  }, [taskId]); // You can also include `taskId` in case it changes
 
   return (
     <div style={{ marginTop: "10px" }}>
